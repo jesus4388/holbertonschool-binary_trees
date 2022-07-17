@@ -1,5 +1,5 @@
 #include "binary_trees.h"
-/*
+/**
  * binary_tree_is_root - check root
  * @node: pointer to node
  * Return: 0 or 1
