@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- * binary_tree_height - size binary of tree
+ * binary_tree_heig - size binary of tree
  * @tree: pointer
  * Return: 1 or 0
  */
