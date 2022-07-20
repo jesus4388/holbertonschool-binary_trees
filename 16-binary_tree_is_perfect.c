@@ -17,22 +17,16 @@ size_t binary_tree_heig(const binary_tree_t *tree)
 	i = 1 + binary_tree_heig(tree->left);
 	b = 1 + binary_tree_heig(tree->right);
 
-	if (b < i)
+	if (b == i)
 	{
 		i -= 1;
 		i *= 2;
 		return (i + 1);
 	}
-	else
-	{
-		b -= 1;
-		b *= 2;
-		return (b + 1);
-	}
 	return (0);
 }
 /**
- * binary_tree_size - measures size of a binary tree
+ * binary_size - measures size of a binary tree
  * @tree: pointer to node
  * Return: 0 or size
  */
