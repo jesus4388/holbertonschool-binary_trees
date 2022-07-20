@@ -1,3 +1,4 @@
+#include <math.h>
 #include "binary_trees.h"
 /**
  * binary_tree_heig - size binary of tree
@@ -11,24 +12,25 @@ size_t binary_tree_heig(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	if (tree->left->left == NULL && tree->right->right != NULL)
-		return (0);
-	if (tree->left->left == NULL && tree->right->left != NULL)
-                return (0);
-	if (tree->left->left != NULL && tree->right->right == NULL)
-		return (0);
-	if (tree->left->right != NULL && tree->right->right == NULL)
-                return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	if (tree->left->left == NULL && tree->right->right == NULL)
-		return (1);
+
 	i = 1 + binary_tree_heig(tree->left);
 	b = 1 + binary_tree_heig(tree->right);
 
 	if (b < i)
-		return (i);
-	return (b);
+	{
+		i -= 1;
+		i *= 2;
+		return (i + 1);
+	}
+	else
+	{
+		b -= 1;
+		b *= 2;
+		return (b + 1);
+	}
+	return (0);
 }
 /**
  * binary_tree_is_perfect - measures the balance factor
@@ -43,10 +45,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (0);
-	a = binary_tree_heig(tree->left);
-	b = binary_tree_heig(tree->right);
-
-	if (a == b)
+	b = binary_tree_size(tree);
+	a = binary_tree_heig(tree);
+	if (b == a)
 		return (1);
 	return (0);
 }
