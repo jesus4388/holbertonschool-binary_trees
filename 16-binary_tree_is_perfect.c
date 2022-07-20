@@ -1,4 +1,3 @@
-#include <math.h>
 #include "binary_trees.h"
 /**
  * binary_tree_heig - size binary of tree
